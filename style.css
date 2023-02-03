@@ -57,28 +57,47 @@ img {
 .g-video-cont {
 	overflow: hidden;
 	position: relative;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (min-width: 600px) {
+	.g-video-cont {
+		height: auto;
+		padding-bottom: 178%;
+	}
 }
 
 .g-vid {
-	/*max-width: 101%;
-	height: 100%;*/
 	filter: brightness(1.01);
-/*	box-shadow: 0 0 5px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.5);*/
 	width: 100%;
-	position: relative;
-	/*top: 50%;
-	transform: translateY(-50%);*/
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .g-frame-outer {
-	background: url(background-open.jpg);
+	background: url(yuen.jpg);
 	background-size: 100% auto;
 	background-position: bottom left;
+	overflow: hidden;
+	height: 100vh;
+}
+
+.g-frame-inner {
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (min-width: 600px) {
+	.g-frame-outer {
+		height: auto;
+		border-radius: 10px;
+	}
 }
 
 .g-map-frame {
-	background-image: url(background-map.jpg);
+	background-image: url(map_day.jpg);
 }
 
 .g-thing-cont {
