@@ -42,10 +42,8 @@
 		canvas = d3.select("#canvas canvas");
 		ctx = canvas.node().getContext("2d");
 
-		var cw = canvas.node().getBoundingClientRect().width;
-		var ch = canvas.node().getBoundingClientRect().height;
-
-		console.log(cw, ch)
+		var cw = innerWidth;
+		var ch = innerHeight;
 
 		canvas.width = cw;
 		canvas.height = ch;
@@ -77,13 +75,22 @@
 
 		//-----------Functions--------------
 		resizeCanvas = () => {
-			canvas.width = cw;
-			canvas.height = ch;
+			canvas.width = innerWidth;
+			canvas.height = innerHeight;
+			canvas.style("width", innerWidth + "px");
+			canvas.style("height", innerHeight + "px");
+			canvas.attr("width", innerWidth + "px");
+			canvas.attr("height", innerHeight + "px");
 			cx = ctx.canvas.width/2;
 			cy = ctx.canvas.height/2;
+
+			cancelAnimationFrame(window.timer);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			initConfetti();
+			render();
+
 		}
 
-		console.log(canvas.width, canvas.height)
 
 		randomRange = (min, max) => Math.random() * (max - min) + min
 
@@ -167,7 +174,7 @@
 		  		initConfetti();
 		  }
 
-		  window.requestAnimationFrame(render);
+		  window.timer = window.requestAnimationFrame(render);
 		}
 
 		//---------Execution--------
