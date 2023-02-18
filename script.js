@@ -84,10 +84,10 @@
 			cx = ctx.canvas.width/2;
 			cy = ctx.canvas.height/2;
 
-			cancelAnimationFrame(window.timer);
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			initConfetti();
-			render();
+			// cancelAnimationFrame(window.timer);
+			// ctx.clearRect(0, 0, canvas.width, canvas.height);
+			// initConfetti();
+			// render();
 
 		}
 
@@ -169,8 +169,8 @@
 		    ctx.setTransform(1, 0, 0, 1, 0, 0);
 		  });
 
-		  // Fire off another round of confetti
-		  if (confetti.length <= 20) {
+		  // // Fire off another round of confetti
+		  if (confetti.length <= 30) {
 		  		initConfetti();
 		  }
 
