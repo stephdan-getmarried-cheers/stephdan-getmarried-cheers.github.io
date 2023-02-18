@@ -86,7 +86,7 @@
 
 			// cancelAnimationFrame(window.timer);
 			// ctx.clearRect(0, 0, canvas.width, canvas.height);
-			// initConfetti();
+			initConfetti();
 			// render();
 
 		}
@@ -189,14 +189,23 @@
 		img.src = "cp_head.png"
 
 		//----------Resize----------
-		window.addEventListener('resize', function () {
+		window.addEventListener('resize', debounce(function(e){
 		  resizeCanvas();
-		});
+		}));
 
 		//------------Click------------
 		window.addEventListener('click', function() {
 		  initConfetti();
+		  // render();
 		});
+
+		function debounce(func){
+		  var timer;
+		  return function(event){
+		    if(timer) clearTimeout(timer);
+		    timer = setTimeout(func,250,event);
+		  };
+		}
 
 
 
